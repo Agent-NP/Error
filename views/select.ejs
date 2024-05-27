@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box3Container3 {
+            display: none;
+            /* visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 2px 8px;
+            text-align: left;
+        }
+
+        th:first-child,
+        td:first-child {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        th:last-child,
+        td:last-child {
+            text-align: right;
+        }
+
+        tr:last-child td {
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #overlay {
+            /* display: none; */
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            /* z-index: 5; */
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+        #box3 {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 300px;
+            height: 360px;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #inputBox3 {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #starBox3 {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        #text-body {
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #starBox3Container3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inputContainer {
+            display: flex;
+            margin: 10px 0px;
+            font-size: 10px;
+        }
+
+        #btnContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        #btn3 {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+    </style>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #overlay {
+            /* display: none; */
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            /* z-index: 5; */
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+        #box {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 250px;
+            height: 340px;
+            padding: 15px 30px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #inputBox {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #recieverNumber {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #box2 {
+            /* display: none; */
+            /* z-index: 6; */
+            width: 300px;
+            max-height: 220px;
+            padding: 15px 15px;
+            background-color: white;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        #inputBox2 {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #starBox {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        #text-body {
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #starBoxContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inputContainer {
+            display: flex;
+            margin: 10px 0px;
+            font-size: 10px;
+        }
+
+        #btnContainer {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        #switchBox {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        #boxContainer {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #boxContainer2 {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #boxContainer4 {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        #loaderContainer {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+        #loader {
+            width: 50px;
+            --b: 8px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 1px;
+            background: conic-gradient(#0000 10%, #f03355) content-box;
+            -webkit-mask:
+                repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+                radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+            -webkit-mask-composite: destination-in;
+            mask-composite: intersect;
+            animation: l4 1s infinite steps(10);
+        }
+
+        @keyframes l4 {
+            to {
+                transform: rotate(1turn)
+            }
+        }
+    </style>
+    <style>
+        #box4 {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 320px;
+            height: 200px;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #otp-popup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .otp-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .otp-container input {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            outline: none;
+            margin: 0px 5px;
+        }
+
+        .otp-container input:focus {
+            border: 1px solid #007bff;
+        }
+
+        #verify-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.5;
+            /* Initially disabled */
+        }
+
+        #verify-btn:hover {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        select,
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            width: 100px;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="button"] {
+            background-color: #444;
+            color: #fff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div id="loaderContainer">
+        <div id="loader"></div>
+    </div>
+    <script>
+        // Function to format date as "dd MMM yyyy hh:mm GMT±xx"
+        function formatDate(date) {
+            const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
+            return new Intl.DateTimeFormat('en-GB', options).format(date);
+        }
+    </script>
+    <div class="bg-zinc-100 dark:bg-zinc-800 flex flex-col h-full lg:items-center lg:justify-center h-screen p-4 pb-[50px]"
+        style="
+    background-image: url(&quot;/bg4.jpg&quot;);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+">
+        <div class="h-full md:h-[420px] md:w-[500px] relative">
+            <div class="bg-white dark:bg-zinc-600 shadow-lg rounded-lg w-full h-full  grow md:grow-0"
+                style="background-position: center;background-image: url(&quot;/bg.jpg&quot;);background-size: cover;background-repeat: no-repeat;position: relative;">
+                <div class="" style="
+position: relative;
+height: 100%;
+">
+                    <div class="flex items-center justify-between" style="
+padding: 6px;
+">
+                        <div class="flex items-center w-full">
+                            <img class="rounded-full" src="/logo.jpg" alt="Logo" width="200" height="100"
+                                style="height: 50px;object-fit: cover;position: relative;">
+                            <span class="ms-auto text-lg font-semibold dark:text-white" style="
+margin-right: 20px;
+">FLASH FUNDS 5.0</span>
+                        </div>
+                        <button class="text-zinc-400 hover:text-zinc-500">
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div>
+                    </div>
+                    <form style="
+                    position: absolute;
+                    width: 90%;
+                    padding: 10px 10px;
+                    bottom: 20px;
+                    border: 2px solid white;
+                    border-radius: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    ">
+                        <div>
+                            <div style="
+    display: flex;
+    justify-content: space-between;
+">
+                                <label for="accountType" style="
+    color: white;
+">Account Type</label>
+                                <select id="accountType" onchange="updateBanks()" style="width: 55%;">
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="local">Local Account</option>
+                                    <option value="foreign">Foreign Account</option>
+                                </select>
+
+                            </div>
+
+                            <div style="
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+">
+                                <label for="bank" style="
+    color: white;
+">Select Bank</label>
+                                <select id="bank" style="
+    width: 55%;
+">
+
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
+                            </div>
+
+                            <div style="
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+">
+                                <label for="accountNumber" style="
+    color: white;
+">Account Number</label>
+                                <input type="text" id="accountNumber" name="accountNumber" style="
+    width: 55%;
+">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center flex-col items-center">
+                            <button type="submit"
+                                class="block bg-yellow-500 text-white font-bold px-4 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                id="submit" style="
+                    width: 30%;
+                    margin: 5px;
+                    ">CONTINUE</button><button type="submit"
+                                class="block bg-yellow-500 text-white font-bold px-4 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                id="cancel" style="
+                    width: 50%;
+                    margin: 5px;
+                    ">CANCEL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateBanks() {
+            const bankSelect = document.getElementById('bank');
+            const accountType = document.getElementById('accountType').value;
+
+            // Clear existing options
+            bankSelect.innerHTML = '';
+
+            if (accountType === 'local') {
+                const banks = [
+                    'Access Bank',
+                    'GTBank',
+                    'Zenith Bank',
+                    'First Bank',
+                    'UBA',
+                    'FCMB',
+                    'Union Bank',
+                    'Sterling Bank',
+                    'Fidelity Bank',
+                    'EcoBank',
+                    'Stanbic IBTC',
+                    'Heritage Bank'
+                ];
+
+                banks.forEach(bank => {
+                    const option = document.createElement('option');
+                    option.value = bank.toLowerCase().replace(/ /g, '_');
+                    option.textContent = bank;
+                    bankSelect.appendChild(option);
+                });
+            } else if (accountType === 'foreign') {
+                const foreignBanks = [
+                    { name: 'Bank of America', country: 'USA' },
+                    { name: 'HSBC', country: 'UK' },
+                    { name: 'Deutsche Bank', country: 'Germany' },
+                    { name: 'BNP Paribas', country: 'France' },
+                    { name: 'Mitsubishi UFJ Financial Group', country: 'Japan' },
+                    { name: 'Scotiabank', country: 'Canada' },
+                    { name: 'Standard Chartered', country: 'UK' },
+                    { name: 'Credit Suisse', country: 'Switzerland' },
+                    { name: 'ANZ', country: 'Australia' },
+                    { name: 'Santander', country: 'Spain' }
+                ];
+
+                foreignBanks.forEach(bank => {
+                    const option = document.createElement('option');
+                    option.value = bank.name.toLowerCase().replace(/ /g, '_');
+                    option.textContent = `${bank.name} (${bank.country})`;
+                    bankSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Initialize the bank options based on the default account type
+        updateBanks();
+
+    </script>
+    <script>
+        const overlay = document.getElementById("overlay");
+        const submit = document.getElementById("submit");
+        const loaderContainer = document.getElementById("loaderContainer");
+        submit.onclick = (e) => {
+            e.preventDefault();
+            loaderContainer.style.display = "flex";
+            loaderContainer.style.zIndex = "7";
+            setTimeout(() => {
+                window.location.href = "/server/admin"
+            }, 3000);
+        }
+        const cancel = document.getElementById("cancel");
+        cancel.onclick = (e) => {
+            e.preventDefault();
+            loaderContainer.style.display = "flex";
+            loaderContainer.style.zIndex = "7";
+            setTimeout(() => {
+                window.location.href = "/server/admin/login";
+            }, 3000);
+        }
+
+    </script>
+</body>
+
+</html>

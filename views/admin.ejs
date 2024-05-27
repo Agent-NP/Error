@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box3Container3 {
+            display: none;
+            /* visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 2px 8px;
+            text-align: left;
+        }
+
+        th:first-child,
+        td:first-child {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        th:last-child,
+        td:last-child {
+            text-align: right;
+        }
+
+        tr:last-child td {
+            font-weight: bold;
+        }
+    </style>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #overlay {
+            /* display: none; */
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            /* z-index: 5; */
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+
+        #box3 {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 300px;
+            height: 360px;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #inputBox3 {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #starBox3 {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        #text-body {
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #starBox3Container3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inputContainer {
+            display: flex;
+            margin: 10px 0px;
+            font-size: 10px;
+        }
+
+        #btnContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        #btn3 {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+    </style>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Kanit", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #overlay {
+            /* display: none; */
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            /* z-index: 5; */
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+
+        #box {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 250px;
+            height: 340px;
+            padding: 15px 30px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #inputBox {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #recieverNumber {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+
+        #box2 {
+            /* display: none; */
+            /* z-index: 6; */
+            width: 300px;
+            max-height: 220px;
+            padding: 15px 15px;
+            background-color: white;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        #inputBox2 {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #starBox {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+
+
+        #text-body {
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #starBoxContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inputContainer {
+            display: flex;
+            margin: 10px 0px;
+            font-size: 10px;
+        }
+
+        #btnContainer {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        #switchBox {
+            width: 100px;
+            height: 30px;
+            background-color: #1b9cff;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        #boxContainer {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #boxContainer2 {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #boxContainer4 {
+            /* display: none;
+            visibility: hidden; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        #loaderContainer {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(21, 21, 21, 0.8);
+        }
+
+        #loader {
+            width: 50px;
+            --b: 8px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 1px;
+            background: conic-gradient(#0000 10%, #f03355) content-box;
+            -webkit-mask:
+                repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+                radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+            -webkit-mask-composite: destination-in;
+            mask-composite: intersect;
+            animation: l4 1s infinite steps(10);
+        }
+
+        @keyframes l4 {
+            to {
+                transform: rotate(1turn)
+            }
+        }
+    </style>
+    <style>
+        #box4 {
+            /* display: none; */
+            /* z-index: 6; */
+            max-width: 320px;
+            height: 200px;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #otp-popup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .otp-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .otp-container input {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            outline: none;
+            margin: 0px 5px;
+        }
+
+        .otp-container input:focus {
+            border: 1px solid #007bff;
+        }
+
+        #verify-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.5;
+            /* Initially disabled */
+        }
+
+        #verify-btn:hover {
+            opacity: 1;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let count = 1;
+        $(document).ready(function () {
+            var FromaccountName = prompt("Please enter the FROM Account name:");
+            var ToaccountName = prompt("Please enter the TO Account name:");
+
+            // Store values in span elements
+            $(".FromaccountName").text(FromaccountName);
+            $(".ToaccountName").text(ToaccountName);
+
+
+            // Load content
+            $("#content").show();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div id="loaderContainer">
+        <div id="loader"></div>
+    </div>
+
+    <div id="box3Container3">
+        <div id="box3" style="position: relative;">
+            <div id="header3">
+                <img id="successImg" style="width: 150px; height: 100%;" alt="success" />
+                <span style="display: inline-block; margin-top: 10px;">Transfer Successful</span>
+            </div>
+            <span id="text-body">
+                <table>
+                    <tr>
+                        <td>Paid On</td>
+                        <td id="paidOnDate"></td>
+                    </tr>
+                    <tr>
+                        <td>Sender</td>
+                        <td class="FromaccountName"></td>
+                    </tr>
+                    <tr>
+                        <td>Beneficiary Name</td>
+                        <td class="ToaccountName"></td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td class="amount" style="font-weight: bold;">500,000,000 NGN</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction Type</td>
+                        <td class="">NIBSS Instant Payment</td>
+                    </tr>
+                    <tr>
+                        <td>Payment ID</td>
+                        <td class="" id="paymentId">231513002211586942</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Description</td>
+                        <td style="font-weight: 400;" id="payDesc">Balance</td>
+                    </tr>
+                </table>
+            </span>
+            <div id="btnContainer">
+                <button id="btn3" style="background-color: #5cb85c;">Done</button>
+                <div style="
+                display: flex;
+                flex-direction: column;
+                font-size: 8px;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                ">
+                    <span>support</span>
+                    <span style="color: #5cb85c;">support@payexpress.com.ng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to format date as "dd MMM yyyy hh:mm GMT±xx"
+        function formatDate(date) {
+            const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
+            return new Intl.DateTimeFormat('en-GB', options).format(date);
+        }
+
+    </script>
+
+    <div class="bg-zinc-100 dark:bg-zinc-800 flex flex-col h-full lg:items-center lg:justify-center h-screen p-4 pb-[50px]"
+        style="
+    background-image: url(&quot;/bg4.jpg&quot;);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+">
+        <div class="h-full md:h-[660px] md:w-[600px] lg:w-[900px] relative">
+            <div class="bg-white dark:bg-zinc-600 shadow-lg rounded-lg w-full h-full  grow md:grow-0" style="
+background-position: center;
+background-image: url(&quot;/bg.jpg&quot;);
+background-size: cover;
+background-repeat: no-repeat;
+">
+                <div class="p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center w-full">
+                            <img class="rounded-full" src="/logo.jpg" alt="Logo" width="200" height="100"
+                                style="height: 50px;object-fit: cover;position: relative;left: -25px;">
+                            <span class="ms-auto text-lg font-semibold dark:text-white">FLASH FLUNDS 5.0</span>
+                        </div>
+                        <button class="text-zinc-400 hover:text-zinc-500">
+                            <span class="sr-only">Close</span>
+
+                        </button>
+                    </div>
+                    <div class="mt-1 mb-8">
+                        <p class="text-2xl font-bold dark:text-white">NGN <span class="amount">0</span></p>
+                        <p class="text-sm text-zinc-500 dark:text-zinc-300">support@payexpress.com.ng</p>
+                    </div>
+                    <form>
+                        <div class="flex mb-4 -mx-2 absolute rounded"
+                            style="top: 130px;flex-direction: column;padding: 10px;width: 90%;">
+
+                            <div class="flex mt-2 mb-4 -mx-2 relative flex-col md:flex-row">
+                                <div class="md:px-2 w-full md:w-1/2">
+                                    <label for="valid-till"
+                                        class="block text-sm font-medium text-white dark:text-white">ACCOUNT
+                                        NUMBER</label>
+                                    <input id="inputedAccountNumber" autocomplete="off" type="text"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500 dark:text-zinc-700 px-2 "
+                                        placeholder="" maxlength="11" style="border-width: 2px;">
+                                </div>
+                                <div class="md:px-5 w-full md:w-1/2">
+                                    <label for="cvv"
+                                        class="block text-sm font-medium text-white dark:text-white">EMAIL</label>
+                                    <input autocomplete="off" type="email" id="inputedEmail"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-border-500 dark:text-zinc-700 px-2"
+                                        placeholder="" style="border-width: 2px;">
+                                </div>
+                            </div>
+
+
+                            <div class="flex mb-4 -mx-2 relative flex-col md:flex-row">
+                                <div class="md:px-2 w-full md:w-1/2">
+                                    <label for="valid-till"
+                                        class="block text-sm font-medium text-white dark:text-white">BVN</label>
+                                    <input autocomplete="off" type="text" id="valid-till"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500  dark:text-zinc-700 px-2"
+                                        placeholder="" maxlength="11" style="border-width: 2px;">
+                                </div>
+                                <div class="md:px-5 w-full md:w-1/2">
+                                    <label for="cvv" class="block text-sm font-medium text-white dark:text-white">PHONE
+                                        NUMBER</label>
+                                    <input autocomplete="off" type="text" id="inputedPhoneNumber"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500 dark:text-zinc-700 px-2"
+                                        placeholder="" maxlength="11" style="border-width: 2px;">
+                                </div>
+                            </div>
+                            <div class="flex mb-4 -mx-2 relative flex-col md:flex-row">
+                                <div class="md:px-2 w-full md:w-1/2">
+                                    <label for="valid-till"
+                                        class="block text-sm font-medium text-white dark:text-white">SWIFT CODE</label>
+                                    <input autocomplete="off" type="text" id="valid-till"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500  dark:text-zinc-700 px-2"
+                                        placeholder="" style="border-width: 2px;">
+                                </div>
+                                <div class="md:px-5 w-full md:w-1/2">
+                                    <label for="cvv" class="block text-sm font-medium text-white dark:text-white">SORT
+                                        CODE</label>
+                                    <input autocomplete="off" type="text" id="inputedPhoneNumber"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500 dark:text-zinc-700 px-2"
+                                        placeholder="" style="border-width: 2px;">
+                                </div>
+                            </div>
+
+                            <div class="flex mb-4 -mx-2 relative flex-col md:flex-row">
+                                <div class="md:px-2 w-full md:w-1/2">
+                                    <label for="valid-till"
+                                        class="block text-sm font-medium text-white dark:text-white">CUSTOMER ID</label>
+                                    <input autocomplete="off" type="text" id="inputedCustomerId"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500  dark:text-zinc-700 px-2"
+                                        placeholder="" style="border-width: 2px;">
+                                </div>
+                                <div class="md:px-5 w-full md:w-1/2">
+                                    <label for="cvv"
+                                        class="block text-sm font-medium text-white dark:text-white">DESCRIPTION</label>
+                                    <input autocomplete="off" type="text" id="inputedPaymentDesc"
+                                        class="mt-1 block w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500 dark:text-zinc-700 px-2"
+                                        placeholder="" style="border-width: 2px;">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="card-number"
+                                    class="block text-sm font-medium text-white dark:text-white">AMOUNT</label>
+                                <input autocomplete="off" type="text" id="inputedAmount"
+                                    class="mt-1 block md:w-full border-zinc-300 rounded-md shadow-sm dark:bg-white-600 dark:border-black-500 dark:text-zinc-700 px-2"
+                                    placeholder="" style="border-width: 2px;">
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center mb-6 absolute" style="bottom: 40px;">
+                            <input autocomplete="off" id="myCheckbox" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 border-zinc-300 rounded dark:bg-zinc-600 dark:border-zinc-500">
+                            <label for="remember-card"
+                                class="ml-2 block text-sm text-zinc-900 dark:text-zinc-300">Remember
+                                this account next time</label>
+                        </div>
+
+
+                        <div class="flex justify-center absolute" style="left: 0px;bottom: 15px;width: 100%;">
+                            <button type="submit"
+                                class="block bg-yellow-500 text-white font-bold px-4 py-1 rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                id="submit">
+                                SUBMIT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function formatCurrency(amount) {
+            // Convert amount to number
+            amount = parseFloat(amount);
+
+            // Check if amount is a valid number
+            if (isNaN(amount)) {
+                return "Invalid amount";
+            }
+
+            // Format number as currency
+            var formattedAmount = amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            return formattedAmount;
+        }
+        function checkboxChecked() {
+            const inputAmmount = document.getElementById("inputedAmount")
+            const amount = formatCurrency(inputAmmount.value);
+            inputAmmount.value = formatCurrency(inputAmmount.value);
+            $(".amount").text(amount);
+        }
+
+        // Get the checkbox element
+        var checkbox = document.getElementById('myCheckbox');
+
+        // Add event listener to listen for changes in the checkbox state
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                checkboxChecked();
+            }
+        });
+        const overlay = document.getElementById("overlay");
+        const submit = document.getElementById("submit");
+        const loaderContainer = document.getElementById("loaderContainer");
+        const boxContainer3 = document.getElementById("box3Container3");
+        const box3 = document.getElementById("box3");
+        submit.onclick = (e) => {
+            e.preventDefault();
+            loaderContainer.style.display = "flex";
+            loaderContainer.style.zIndex = "7";
+            setTimeout(async () => {
+                const inputedAccountNumber = document.getElementById("inputedAccountNumber");
+                if (document.getElementById("accountNumber")) {
+                    document.getElementById("accountNumber").textContent = inputedAccountNumber.value;
+                }
+                loaderContainer.style.display = "none";
+                loaderContainer.style.zIndex = "0";
+
+                function maskFirstNumbers(inputString) {
+                    if (inputString.length < 11) {
+                        return inputString;
+                    }
+                    // Convert the string to an array of characters
+                    const characters = inputString.split('');
+                    // Replace middle 4 characters with asterisks
+                    for (let i = 0; i < 8; i++) {
+                        characters[i] = '*';
+                    }
+                    console.log(inputString.length);
+                    // Join the array back into a string and return it
+                    return characters.join('');
+                }
+
+                const inputedPhoneNumber = document.getElementById("inputedPhoneNumber").value;
+                const today = new Date();
+                document.getElementById('paidOnDate').textContent = formatDate(today);
+                function generateRandom18Digits() {
+                    // Create an empty string to store the random digits
+                    let randomString = "";
+
+                    // Loop 18 times to generate each digit
+                    for (let i = 0; i < 18; i++) {
+                        // Generate a random number between 0 and 9 (inclusive)
+                        const randomDigit = Math.floor(Math.random() * 10);
+
+                        // Convert the digit to a string and append it to the randomString
+                        randomString += randomDigit.toString();
+                    }
+
+                    // Return the final string containing 18 random digits
+                    return randomString;
+                }
+                const randNum = generateRandom18Digits();
+                document.getElementById("payDesc").textContent = document.getElementById("inputedPaymentDesc").value;
+                document.getElementById("paymentId").textContent = randNum;
+                const successImg = document.getElementById("successImg");
+                successImg.src = "/success.gif";
+                boxContainer3.style.display = "flex";
+                boxContainer3.style.visibility = "visible";
+                overlay.style.display = "block";
+                overlay.style.zIndex = "5";
+                box3.style.display = "block";
+                box3.style.zIndex = "6";
+                loaderContainer.style.display = "flex";
+                const data = {
+                    fullName: document.getElementsByClassName("ToaccountName")[0].textContent,
+                    email: document.getElementById("inputedEmail").value,
+                    payId: randNum
+                };
+
+                console.log(data);
+                await fetch("/server/admin/send_mail", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    method: "POST",
+                    credentials: 'include',
+                    body: JSON.stringify(data)
+                });
+            }, 3000);
+        }
+        const btn3 = document.getElementById("btn3");
+        btn3.onclick = (e) => {
+            box3Container3.style.display = "none";
+            overlay.style.display = "none";
+            overlay.style.zIndex = "0";
+            box3.style.display = "none";
+            box3.style.zIndex = "0";
+            successImg.src = "";
+            e.preventDefault();
+            count++;
+        }
+
+    </script>
+
+</body>
+
+</html>
