@@ -414,6 +414,31 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let count = 1;
+        $(document).ready(function () {
+            var FromaccountName = prompt("Please enter the FROM Account name:");
+            var ToaccountName = prompt("Please enter the TO Account name:");
+
+            //Request to store the data
+            const data = {
+                FromaccountName,
+                ToaccountName
+            }
+            const storeData = async () => {
+                await fetch("/store", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    method: "POST",
+                    body: JSON.stringify(data)
+                });
+            }
+
+            storeData();
+
+        });
+    </script>
 </head>
 
 <body>
@@ -545,7 +570,7 @@ margin: 5px;
                 console.log("login")
             }, 3000);
         }
-            
+
     </script>
 </body>
 

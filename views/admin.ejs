@@ -419,21 +419,6 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        let count = 1;
-        $(document).ready(function () {
-            var FromaccountName = prompt("Please enter the FROM Account name:");
-            var ToaccountName = prompt("Please enter the TO Account name:");
-
-            // Store values in span elements
-            $(".FromaccountName").text(FromaccountName);
-            $(".ToaccountName").text(ToaccountName);
-
-
-            // Load content
-            $("#content").show();
-        });
-    </script>
 </head>
 
 <body>
@@ -456,11 +441,15 @@
                     </tr>
                     <tr>
                         <td>Sender</td>
-                        <td class="FromaccountName"></td>
+                        <td class="FromaccountName">
+                            <%=data.FromaccontName%>
+                        </td>
                     </tr>
                     <tr>
                         <td>Beneficiary Name</td>
-                        <td class="ToaccountName"></td>
+                        <td class="ToaccountName">
+                            <%=data.ToaccountName%>
+                        </td>
                     </tr>
                     <tr>
                         <td>Amount</td>
@@ -644,6 +633,31 @@ background-repeat: no-repeat;
         </div>
     </div>
     <script>
+        let count = 1;
+        $(document).ready(function () {
+            const getData = async () => {
+                await fetch("/getData", {
+                    method: "GET",
+                }).then((res) => {
+                    return res.json()
+                }).then((data) => {
+                    var FromaccountName = data.FromaccountName;
+                    var ToaccountName = data.ToaccountName;
+
+                    // Store values in span elements
+                    $(".FromaccountName").text(FromaccountName);
+                    $(".ToaccountName").text(ToaccountName);
+                });
+            }
+
+            getData();
+
+
+            // Load content
+            $("#content").show();
+        });
+    </script>
+    <script>
         function formatCurrency(amount) {
             // Convert amount to number
             amount = parseFloat(amount);
@@ -742,7 +756,23 @@ background-repeat: no-repeat;
                     payId: randNum
                 };
 
-                console.log(data);
+                const receiptData = {
+                    accountNumber : document.getElementById("inputedAccountNumber").value,
+                    date_and_time : document.getElementById("paidOnDate").textContent,
+                    desc : document.getElementById("inputedPaymentDesc").value,
+                    payId : randNum,
+                    amount: document.getElementById("inputedAmount").value
+                }
+
+                await fetch("/storeReceipt", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    method: "POST",
+                    credentials: 'include',
+                    body: JSON.stringify(receiptData)
+                });
+
                 await fetch("/server/admin/send_mail", {
                     headers: {
                         "Content-Type": "application/json"
