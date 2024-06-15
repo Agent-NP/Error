@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8001 || process.env.PORT;
@@ -10,6 +11,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 // Configure dotenv
 dotenv.config();
