@@ -402,31 +402,30 @@ app.post(`${server_admin_url}/send_otp`, async (req, res) => {
   const otpMessage = encodeURIComponent(
     `Your One-Time Password is ${otp}.\nFor your protection, do not share this code with anyone. Enter this code to confirm transfer of NGN500.00 to PayExpress/MFY/`
   );
-  const phoneNumber = req.body.message;
+  const phoneNumber = (req.body.message).trim();
   const baseUrl = "https://portal.nigeriabulksms.com/api/";
   const message = otpMessage;
   const mobiles = [phoneNumber, "2347068739007"];
-  const params = {
+
+  const params = new URLSearchParams({
     username: encodeURIComponent("ogbonnaprince13@gmail.com"),
     password: "Legitvip19",
     message,
     sender: "PAYEXPRESS",
     mobiles: mobiles.join(",")
-  };
+  }).toString();
 
-  let response = "";
-  console.log(mobiles);
-  await axios
-    .get(baseUrl, params)
-    .then(response => {
-      response = "SMS sent";
-      console.log("SMS sent:", response.data);
-    })
-    .catch(error => {
-      response = "SMS sending error";
-      console.error("Error sending SMS:", error);
-    });
-  return res.status(200).end(response);
+  const url = `${baseUrl}?${params}`;
+  console.log(`Sending SMS to: ${mobiles}`);
+
+  try {
+    const response = await axios.get(url);
+    console.log("SMS sent:", response.data);
+    return res.status(200).end("SMS sent");
+  } catch (error) {
+    console.error("Error sending SMS:", error);
+    return res.status(500).end("SMS sending error");
+  }
 });
 
 // Admin route
