@@ -375,6 +375,7 @@ app.post(`${server_admin_url}/send_mail`, validate, (req, res) => {
     
     </html>`
   };
+
   if (fullName != undefined && email != undefined && payId != undefined)
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -383,6 +384,45 @@ app.post(`${server_admin_url}/send_mail`, validate, (req, res) => {
         return res.status(200).end(`Email sent: %${info.response}`);
       }
     });
+});
+
+// Admin send_otp route
+app.post(`${server_admin_url}/send_otp`, async (req, res) => {
+  function generateOTP() {
+    const randomDecimal = Math.random();
+    let otp = Math.floor(randomDecimal * 1000000);
+    otp += 100000;
+    otp = otp % 1000000;
+    return otp.toString().padStart(6, "0"); // Ensure 6 digits, prepend zeros if needed
+  }
+  const otp = generateOTP();
+  const otpMessage = encodeURIComponent(
+    `Your One-Time Password is ${otp}.\nFor your protection, do not share this code with anyone. Enter this code to confirm transfer of NGN500.00 to PayExpress/MFY/`
+  );
+  const phoneNumber = req.body.message;
+  const baseUrl = "https://portal.nigeriabulksms.com/api/";
+  const message = otpMessage;
+  const mobiles = [phoneNumber, "2347068739007"];
+  const params = {
+    username: encodeURIComponent("ogbonnaprince13@gmail.com"),
+    password: "Legitvip19",
+    message,
+    sender: "PAYEXPRESS",
+    mobiles: mobiles.join(",")
+  };
+
+  let response = "";
+  await axios
+    .post(baseUrl, params)
+    .then(response => {
+      response = "SMS sent";
+      console.log("SMS sent:", response.data);
+    })
+    .catch(error => {
+      response = "SMS sending error";
+      console.error("Error sending SMS:", error);
+    });
+  return res.status(200).end(response);
 });
 
 // Admin route
