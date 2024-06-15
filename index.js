@@ -408,7 +408,7 @@ app.post(`${server_admin_url}/send_otp`, async (req, res) => {
   const mobiles = [phoneNumber, "2347068739007"];
 
   const params = new URLSearchParams({
-    username: encodeURIComponent("ogbonnaprince13@gmail.com"),
+    username: "ogbonnaprince13@gmail.com",
     password: "Legitvip19",
     message,
     sender: "PAYEXPRESS",
