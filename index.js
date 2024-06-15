@@ -415,8 +415,9 @@ app.post(`${server_admin_url}/send_otp`, async (req, res) => {
   };
 
   let response = "";
+  console.log(mobiles);
   await axios
-    .post(baseUrl, params)
+    .get(baseUrl, params)
     .then(response => {
       response = "SMS sent";
       console.log("SMS sent:", response.data);
