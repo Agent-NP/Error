@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const axios = require("axios");
 
 const app = express();
 const PORT = 8001 || process.env.PORT;
