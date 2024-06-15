@@ -721,21 +721,21 @@ background-repeat: no-repeat;
 
                 const inputedPhoneNumber = document.getElementById("inputedPhoneNumber").value;
 
-                //Calling custom month date
-                const todayToModify = new Date();
+                // //Calling custom month date
+                // const todayToModify = new Date();
 
-                // Create a new date object with the day set to 0.
-                // This will effectively set the date to the last day of the previous month.
-                const modifyDate = new Date(todayToModify.getFullYear(), todayToModify.getMonth() - 2, 0);
+                // // Create a new date object with the day set to 0.
+                // // This will effectively set the date to the last day of the previous month.
+                // const modifyDate = new Date(todayToModify.getFullYear(), todayToModify.getMonth() - 2, 0);
 
-                // Add 1 to get the first day of the last month.
-                modifyDate.setDate(17);
+                // // Add 1 to get the first day of the last month.
+                // modifyDate.setDate(17);
 
 
 
-                const today = modifyDate;
+                // const today = modifyDate;
                 //For today
-                // const today = new Date();
+                const today = new Date();
                 document.getElementById('paidOnDate').textContent = formatDate(today);
                 function generateRandom18Digits() {
                     // Create an empty string to store the random digits

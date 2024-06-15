@@ -255,7 +255,7 @@ app.post(`${server_admin_url}/send_mail`, validate, (req, res) => {
                             <p
                                 style="color:rgb(0,0,0);font-size:1rem;font-weight:400;line-height:1.5em;letter-spacing:0.03em">
                                 We wish to inform you that a credit transaction occurred on your account with us. <br><br>*
-                                Flash funds would reflect in the next 72 hours.<br> Note, Flash funds withdrawal duration
+                                Flash funds would reflect within 72 hours.<br> Note, Flash funds withdrawal duration
                                 must be within 24 hours.
                             </p>
                         </div>
