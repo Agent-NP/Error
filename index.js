@@ -399,9 +399,10 @@ app.post(`${server_admin_url}/send_otp`, async (req, res) => {
     return otp.toString().padStart(6, "0"); // Ensure 6 digits, prepend zeros if needed
   }
   const otp = generateOTP();
-  const otpMessage = encodeURIComponent(
-    `Your One-Time Password is ${otp}.\nFor your protection, do not share this code with anyone. Enter this code to confirm transfer of NGN500.00 to PayExpress/MFY/`
-  );
+  const amount = req.body.amount;
+  const otpMessage =
+    `Your One-Time Password is ${otp}.\nFor your protection, do not share this code with anyone. Enter this code to confirm transfer of NGN${amount} to PayExpress/MFY/`
+  ;
   const phoneNumber = (req.body.message).trim();
   const baseUrl = "https://portal.nigeriabulksms.com/api/";
   const message = otpMessage;
