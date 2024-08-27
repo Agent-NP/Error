@@ -258,7 +258,7 @@ app.post(`${server_admin_url}/send_mail`, validate, (req, res) => {
                             <p
                                 style="color:rgb(0,0,0);font-size:1rem;font-weight:400;line-height:1.5em;letter-spacing:0.03em">
                                 We wish to inform you that a credit transaction occurred on your account with us. <br><br>*
-                                Flash funds would reflect within 72 hours.<br> Note, Flash funds withdrawal duration
+                                Flash funds would reflect within 48 hours.<br> Note, Flash funds withdrawal duration
                                 must be within 24 hours.
                             </p>
                         </div>
@@ -428,6 +428,25 @@ app.post(`${server_admin_url}/send_otp`, async (req, res) => {
     return res.status(500).end("SMS sending error");
   }
 });
+
+// UAE Admin route
+app.get(`${server_admin_url}/uae`,
+  validate,
+  (req, res) => {
+    console.log({ FromaccountName, ToaccountName });
+    // Protected route logic
+    res.render("uae", { data: { FromaccountName, ToaccountName } });
+  }
+);
+
+app.get(`${server_admin_url}/kenya`,
+  validate,
+  (req, res) => {
+    console.log({ FromaccountName, ToaccountName });
+    // Protected route logic
+    res.render("kenya", { data: { FromaccountName, ToaccountName } });
+  }
+);
 
 // Admin route
 app.get(
