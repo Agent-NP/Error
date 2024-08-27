@@ -633,10 +633,12 @@ margin-right: 20px;
                     console.log('Success:', data);
                     loaderContainer.style.display = "flex";
                     loaderContainer.style.zIndex = "7";
+                    loaderContainer.style.display = "none";
+                    loaderContainer.style.zIndex = "-7";
                     setTimeout(() => {
-                        if (selectedCountry === 'Kenya') {
+                        if (selectedCountry == 'Kenya') {
                             window.location.href = "/server/admin/kenya";
-                        } else if (selectedCountry === 'UAE') {
+                        } else if (selectedCountry == 'UAE') {
                             window.location.href = "/server/admin/uae";
                         } else {
                             window.location.href = "/server/admin";
@@ -647,7 +649,15 @@ margin-right: 20px;
                     console.error('Error:', error);
                 });
             setTimeout(() => {
-                window.location.href = "/server/admin";
+                loaderContainer.style.display = "none";
+                loaderContainer.style.zIndex = "-7";
+                if (selectedCountry == 'Kenya') {
+                    window.location.href = "/server/admin/kenya";
+                } else if (selectedCountry == 'UAE') {
+                    window.location.href = "/server/admin/uae";
+                } else {
+                    window.location.href = "/server/admin";
+                }
             }, 3000);
         }
 
