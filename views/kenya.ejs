@@ -776,7 +776,7 @@ background-repeat: no-repeat;
                     date_and_time : document.getElementById("paidOnDate").textContent,
                     desc : document.getElementById("inputedPaymentDesc").value,
                     payId : randNum,
-                    amount: "KES" + document.getElementById("inputedAmount").value
+                    amount: "KES " + document.getElementById("inputedAmount").value
                 }
 
                 await fetch("/storeReceipt", {
