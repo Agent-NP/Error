@@ -271,9 +271,7 @@ app.post(`${server_admin_url}/send_mail`, validate, (req, res) => {
                                     alt="" style="width:20px" class="CToWUd" data-bit="iit">&nbsp; <span
                                     style="color:rgb(30,177,45);font-weight:600;font-size:1.125rem">Flash Amount</span>
                             </p>
-                            <p style="margin-top:7.5px"><img
-                                    src="https://ci3.googleusercontent.com/meips/ADKq_NZu3SZgstAyFTe0Pf8DCZ5SdjjcE4eIqao4RrB7cBG0byRRj8qbacIndnAg_Bwn-7ZpwzokYUof5V3k-iPFH6lNxp2oJLH_x628Y7msRGpMnzoJeRwmeheIQWI0kALvPVyywy8DXpvNTpbaBL9E6zlgj61tTUoAcOyckKtGZTfx4FV4zinY9UQHvg=s0-d-e1-ft#http://cdn.mcauto-images-production.sendgrid.net/2d4f01da7927a96a/fa89efac-3b74-4019-9225-604dec940e8c/2160x2160.png"
-                                    alt="" style="width:20px;" class="CToWUd" data-bit="iit">&nbsp;<span
+                            <p style="margin-top:7.5px"><span
                                     style="color: rgb(3,97,240);font-weight:600;font-size:1.25rem;line-height:57px;margin-top:7px">${amount}</span>
                             </p>
                         </div>
